@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onyinyechi Anita Ikea — Business & Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D;
+    --ink-soft:#334063;
+    --paper:#FFFDF9;
+    --paper-alt:#F5F2FF;
+    --card:#FFFFFF;
+    --steel:#5B6472;
+    --line:#E4E1EE;
+
+    /* Vibrant category palette — each analysis category gets its own hue */
+    --c-excel:#0FA36B;      /* green */
+    --c-excel-soft:#DFF6EC;
+    --c-powerbi:#F2A900;    /* gold/amber, Power BI brand-adjacent */
+    --c-powerbi-soft:#FEF0D2;
+    --c-sql:#2D8CE0;        /* blue */
+    --c-sql-soft:#DFEEFD;
+    --c-bcase:#8E4FE0;      /* purple */
+    --c-bcase-soft:#EEE2FC;
+    --c-brd:#E0457A;        /* magenta/coral */
+    --c-brd-soft:#FCE2EC;
+
+    --signal:#F2A900;
+    --signal-deep:#C77F00;
+
+    --mono:'JetBrains Mono', monospace;
+    --display:'Fraunces', serif;
+    --body:'Inter', sans-serif;
+    --radius:12px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    padding-bottom:64px;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:3px; border-radius:2px;
+    background:linear-gradient(90deg, var(--c-excel), var(--c-powerbi), var(--c-sql), var(--c-bcase), var(--c-brd));
+    display:inline-block;
+  }
+  h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.01em;}
+  h2{font-size:clamp(28px,4vw,38px); color:var(--ink); margin-bottom:8px;}
+  .section-sub{color:var(--steel); max-width:600px; margin-bottom:44px; font-size:15.5px;}
+  section{padding:96px 0;}
+  section:nth-of-type(even){background:var(--paper-alt);}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,253,249,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1140px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:600; font-size:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{
+    width:10px; height:10px; border-radius:3px; display:inline-block;
+    background:conic-gradient(from 180deg, var(--c-excel), var(--c-powerbi), var(--c-sql), var(--c-bcase), var(--c-brd), var(--c-excel));
+  }
+  .topbar-links{display:flex; gap:22px; font-size:14px; font-weight:500;}
+  .topbar-links a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .topbar-links a:hover{color:var(--c-bcase);}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14px;
+    padding:11px 20px; border-radius:8px; border:1px solid transparent;
+    cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(20,33,61,0.25);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .btn-signal{background:linear-gradient(120deg, var(--c-brd), var(--c-bcase)); color:#fff; box-shadow:0 8px 20px -8px rgba(142,79,224,0.5);}
+  .btn-signal:hover{transform:translateY(-1px); box-shadow:0 10px 24px -8px rgba(142,79,224,0.6);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; top:-140px; right:-120px; width:420px; height:420px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--c-powerbi-soft), transparent 70%);
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; bottom:-160px; left:-100px; width:360px; height:360px; border-radius:50%;
+    background:radial-gradient(circle at 60% 60%, var(--c-bcase-soft), transparent 70%);
+    z-index:0;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+    position:relative; z-index:1;
+  }
+  .hero h1{font-size:clamp(36px,5.2vw,58px); line-height:1.05; margin-bottom:18px;}
+  .hero .role{
+    font-family:var(--mono); font-size:14.5px; color:var(--steel);
+    margin-bottom:22px; line-height:1.9;
+  }
+  .hero .role strong{
+    font-weight:700; padding:2px 8px; border-radius:5px; color:#fff; font-size:13px;
+  }
+  .hero .role strong.r1{background:var(--c-bcase);}
+  .hero .role strong.r2{background:var(--c-sql);}
+  .hero .role strong.r3{background:var(--c-brd);}
+  .hero p.lede{font-size:16.5px; color:var(--ink-soft); max-width:520px; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  .sheet-visual{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 24px 60px -24px rgba(20,33,61,0.3);
+    overflow:hidden;
+  }
+  .sheet-visual-header{
+    display:flex; align-items:center; gap:6px;
+    padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt);
+  }
+  .sheet-visual-header span{width:9px; height:9px; border-radius:50%;}
+  .sheet-visual-header .fname{
+    margin-left:8px; font-family:var(--mono); font-size:11.5px; color:var(--steel);
+  }
+  .grid-cells{
+    display:grid;
+    grid-template-columns:32px repeat(4, 1fr);
+    grid-auto-rows:34px;
+  }
+  .grid-cells .rh, .grid-cells .ch{
+    background:var(--paper-alt); font-family:var(--mono); font-size:11px; color:var(--steel);
+    display:flex; align-items:center; justify-content:center; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .grid-cells .cell{
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; padding:0 8px; font-size:12px; color:var(--ink-soft);
+    font-family:var(--mono);
+  }
+  .grid-cells .cell.c-excel{background:var(--c-excel-soft); color:#0A7A52; font-weight:600;}
+  .grid-cells .cell.c-powerbi{background:var(--c-powerbi-soft); color:#9C6C00; font-weight:600;}
+  .grid-cells .cell.c-sql{background:var(--c-sql-soft); color:#1B5FA0; font-weight:600;}
+  .grid-cells .cell.c-bcase{background:var(--c-bcase-soft); color:#6829B3; font-weight:600;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid; grid-template-columns:220px 1fr; gap:48px; align-items:start;}
+  .avatar{
+    width:180px; height:180px; border-radius:50%;
+    background:conic-gradient(from 200deg, var(--c-bcase), var(--c-brd), var(--c-powerbi), var(--c-excel), var(--c-sql), var(--c-bcase));
+    display:flex; align-items:center; justify-content:center;
+    padding:6px;
+  }
+  .avatar span{
+    width:100%; height:100%; border-radius:50%; background:var(--card);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink); font-family:var(--display); font-size:52px; font-weight:600;
+  }
+  .about-body p{color:var(--ink-soft); margin-bottom:16px; max-width:640px;}
+  .location-line{
+    font-family:var(--mono); font-size:13px; color:var(--steel); margin-top:20px;
+    display:flex; align-items:center; gap:8px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+  }
+  .skill-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 20px; border-top:4px solid var(--accent, var(--c-bcase));
+  }
+  .skill-card h3{font-family:var(--body); font-size:14px; font-weight:700; margin-bottom:14px; color:var(--ink);}
+  .skill-card ul{list-style:none;}
+  .skill-card li{
+    font-size:13.5px; color:var(--ink-soft); padding:6px 0; border-bottom:1px dashed var(--line);
+  }
+  .skill-card li:last-child{border-bottom:none;}
+
+  /* ---------- Tabs ---------- */
+  .tab-row{display:flex; gap:10px; margin-bottom:36px; flex-wrap:wrap;}
+  .tab-btn{
+    font-family:var(--mono); font-size:13px; font-weight:600;
+    padding:9px 18px; border-radius:20px; border:1px solid var(--line);
+    background:var(--card); color:var(--steel); cursor:pointer;
+    transition:all .15s ease;
+  }
+  .tab-btn.active{color:#fff; border-color:transparent;}
+  .tab-btn[data-tab="excel"].active{background:var(--c-excel);}
+  .tab-btn[data-tab="powerbi"].active{background:var(--c-powerbi);}
+  .tab-btn[data-tab="sql"].active{background:var(--c-sql);}
+  .tab-btn[data-tab="bcase"].active{background:var(--c-bcase);}
+  .tab-btn[data-tab="brd"].active{background:var(--c-brd);}
+  .tab-btn:hover:not(.active){border-color:var(--ink-soft); color:var(--ink);}
+
+  .card-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:22px;
+  }
+  .proj-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px 24px 20px;
+    display:flex; flex-direction:column; gap:12px;
+    border-top:4px solid var(--accent, var(--c-bcase));
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .proj-card:hover{transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(20,33,61,0.28);}
+  .proj-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--accent-deep, var(--c-bcase));
+    text-transform:uppercase; font-weight:700;
+  }
+  .proj-card h3{font-family:var(--body); font-size:18px; font-weight:700; color:var(--ink);}
+  .proj-card p{font-size:14px; color:var(--ink-soft);}
+  .proj-foot{display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:8px;}
+  .proj-link{
+    font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--ink);
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .proj-link:hover{color:var(--accent-deep, var(--c-bcase));}
+  .tool-badges{display:flex; gap:6px; flex-wrap:wrap;}
+  .tool-badge{
+    font-family:var(--mono); font-size:10.5px; font-weight:600;
+    border-radius:5px; padding:2px 8px;
+  }
+
+  .bcase-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 26px 22px; display:flex; flex-direction:column; gap:14px;
+    border-left:5px solid var(--accent, var(--c-bcase));
+  }
+  .bcase-row{display:flex; gap:14px; align-items:baseline;}
+  .bcase-row .k{
+    font-family:var(--mono); font-size:11px; color:var(--accent-deep, var(--c-bcase)); text-transform:uppercase;
+    letter-spacing:0.06em; width:92px; flex-shrink:0; padding-top:2px; font-weight:700;
+  }
+  .bcase-row .v{font-size:14px; color:var(--ink-soft);}
+  .bcase-card h3{font-family:var(--body); font-size:19px; font-weight:700; margin-bottom:2px;}
+
+  /* ---------- Resume ---------- */
+  .resume-band{
+    background:linear-gradient(120deg, var(--ink) 0%, #2A2159 60%, #4B1F63 100%);
+    color:#fff; border-radius:16px; padding:48px 44px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .resume-band h2{color:#fff;}
+  .resume-band p{color:#D6CDF0; max-width:460px; font-size:15px;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .contact-info a{
+    display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--ink-soft);
+    text-decoration:none; padding:10px 0; border-bottom:1px solid var(--line);
+  }
+  .contact-info a:hover{color:var(--c-bcase);}
+  form{display:flex; flex-direction:column; gap:14px;}
+  input, textarea{
+    font-family:var(--body); font-size:14px; padding:12px 14px;
+    border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink);
+  }
+  input:focus, textarea:focus{outline:2px solid var(--c-bcase); outline-offset:1px;}
+  textarea{resize:vertical; min-height:110px;}
+  .edit-note{
+    font-family:var(--mono); font-size:11px; color:#B0703A; background:#FCEFE3;
+    border:1px dashed #E0AE7A; border-radius:6px; padding:6px 10px; margin-top:4px;
+  }
+
+  footer{padding:36px 0; text-align:center; color:var(--steel); font-size:13px; font-family:var(--mono);}
+
+  /* ---------- Sheet tab bar (signature nav) ---------- */
+  .sheet-tabs{
+    position:fixed; bottom:0; left:0; right:0; z-index:100;
+    background:var(--paper-alt); border-top:1px solid var(--line);
+    display:flex; align-items:flex-end; overflow-x:auto;
+    padding:0 12px;
+  }
+  .sheet-tab{
+    font-family:var(--mono); font-size:12.5px; font-weight:600; color:var(--steel);
+    background:var(--paper); border:1px solid var(--line); border-bottom:none;
+    border-radius:8px 8px 0 0; padding:10px 18px; margin:8px 2px 0; cursor:pointer;
+    white-space:nowrap; transition:all .15s ease; position:relative; top:1px;
+  }
+  .sheet-tab.active{
+    background:var(--card); color:var(--ink); font-weight:700;
+    box-shadow:0 -4px 10px -6px rgba(20,33,61,0.15);
+  }
+  .sheet-tab::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:3px; border-radius:2px 2px 0 0;
+  }
+  .sheet-tab.active::after{background:var(--tab-color, var(--c-bcase));}
+  .sheet-tab:hover:not(.active){color:var(--ink-soft);}
+  .sheet-plus{
+    font-family:var(--mono); color:var(--steel); padding:10px 14px; margin:8px 2px 0;
+    font-size:14px; opacity:0.6; user-select:none;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(2, 1fr);}
+    .card-grid{grid-template-columns:1fr;}
+    .topbar-links{display:none;}
+    .avatar{width:120px; height:120px; font-size:38px;}
+    section{padding:64px 0;}
+    .resume-band{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo"><span class="dot"></span>ONYINYECHI.OAI</div>
+    <div class="topbar-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#data-analysis">Data Analysis</a>
+      <a href="#business-analysis">Business Analysis</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#resume" class="btn btn-primary">Résumé</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Cell A1 — Portfolio</div>
+      <h1>Onyinyechi Anita Ikea</h1>
+      <div class="role">
+        <strong class="r1">Business Analyst</strong> · <strong class="r2">Data Analyst</strong> · <strong class="r3">FinTech Sales &amp; Customer Success</strong>
+      </div>
+      <p class="lede">I help businesses understand problems, document requirements, improve workflows, analyze data, and make better decisions — using Excel, SQL, Power BI, and proven business analysis techniques.</p>
+      <div class="hero-ctas">
+        <a href="#data-analysis" class="btn btn-signal">View my work</a>
+        <a href="#resume" class="btn btn-ghost">Download résumé</a>
+      </div>
+    </div>
+    <div class="sheet-visual">
+      <div class="sheet-visual-header">
+        <span style="background:var(--c-brd)"></span><span style="background:var(--c-powerbi)"></span><span style="background:var(--c-excel)"></span>
+        <div class="fname">profile_summary.xlsx</div>
+      </div>
+      <div class="grid-cells">
+        <div class="rh"></div><div class="ch">A</div><div class="ch">B</div><div class="ch">C</div><div class="ch">D</div>
+        <div class="rh">1</div><div class="cell">Role</div><div class="cell c-bcase">Business Analyst</div><div class="cell">Data Analyst</div><div class="cell">Fintech</div>
+        <div class="rh">2</div><div class="cell">Tools</div><div class="cell c-excel">Excel</div><div class="cell c-powerbi">Power BI</div><div class="cell c-sql">SQL</div>
+        <div class="rh">3</div><div class="cell">Skill</div><div class="cell">BRD</div><div class="cell">RACI</div><div class="cell">UAT</div>
+        <div class="rh">4</div><div class="cell">Base</div><div class="cell" style="grid-column:span 3;">Lagos, Nigeria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">Sheet 1 — About</div>
+    <h2>About me</h2>
+    <p class="section-sub">A quick summary of my background and how I approach the work.</p>
+    <div class="about-grid">
+      <div class="avatar"><span>OA</span></div>
+      <div class="about-body">
+        <p>I am a Business Analyst and Data Analyst with experience in fintech sales, customer relationship management, customer onboarding, retention, and business process improvement. My work focuses on helping businesses understand problems, document requirements, improve workflows, analyze data, and make better decisions.</p>
+        <p>I have practical experience using tools such as Excel, SQL, Power BI, and business analysis techniques including stakeholder analysis, process mapping, gap analysis, fishbone analysis, user stories, acceptance criteria, RACI matrix, and business case development.</p>
+        <div class="location-line">📍 Lagos, Nigeria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Sheet 2 — Skills</div>
+    <h2>Skills &amp; tools</h2>
+    <p class="section-sub">The methods and software I use day to day across business analysis and data analysis work.</p>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+</section>
+
+<!-- DATA ANALYSIS -->
+<section id="data-analysis">
+  <div class="wrap">
+    <div class="eyebrow">Sheet 3 — Data Analysis</div>
+    <h2>Data analysis projects</h2>
+    <p class="section-sub">Hands-on analysis work spanning Excel, Power BI, and SQL. Each project links out to the full write-up and files on GitHub.</p>
+    <div class="tab-row" id="data-tabs">
+      <button class="tab-btn active" data-tab="excel">Excel</button>
+      <button class="tab-btn" data-tab="powerbi">Power BI</button>
+      <button class="tab-btn" data-tab="sql">SQL</button>
+    </div>
+    <div class="card-grid" id="data-card-grid"></div>
+  </div>
+</section>
+
+<!-- BUSINESS ANALYSIS -->
+<section id="business-analysis">
+  <div class="wrap">
+    <div class="eyebrow">Sheet 4 — Business Analysis</div>
+    <h2>Business analysis &amp; case studies</h2>
+    <p class="section-sub">Business cases and BRD (Business Requirements Document) projects — from problem framing through to recommended solution and impact.</p>
+    <div class="tab-row" id="ba-tabs">
+      <button class="tab-btn active" data-tab="bcase">Business Case</button>
+      <button class="tab-btn" data-tab="brd">BRD</button>
+    </div>
+    <div class="card-grid" id="ba-card-grid" style="grid-template-columns:1fr;"></div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <div class="resume-band">
+      <div>
+        <div class="eyebrow" style="color:#F2C879;">Sheet 5 — Résumé</div>
+        <h2>Download my résumé</h2>
+        <p>A full copy of my experience, education, and project history in one PDF.</p>
+      </div>
+      <div>
+        <a href="#" class="btn btn-signal" id="resume-btn">Download résumé (PDF)</a>
+        <div class="edit-note" style="margin-top:10px; background:#3A2A5C; color:#F2C879; border-color:#5A4680;">EDIT ME: replace the href on this button with a link to your uploaded résumé PDF.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Sheet 6 — Contact</div>
+    <h2>Let's talk</h2>
+    <p class="section-sub">Open to business analyst, data analyst, and fintech operations roles — reach out any way that works for you.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <a href="mailto:youremail@example.com">✉️ &nbsp;youremail@example.com</a>
+        <div class="edit-note">EDIT ME: replace with your real email address.</div>
+        <a href="#" style="margin-top:14px;">🔗 &nbsp;linkedin.com/in/your-profile</a>
+        <div class="edit-note">EDIT ME: replace with your LinkedIn URL.</div>
+        <a href="#" style="margin-top:14px;">💻 &nbsp;github.com/your-username</a>
+        <div class="edit-note">EDIT ME: replace with your GitHub profile — all project links throughout this site point here.</div>
+        <a href="#" style="margin-top:14px;">📍 &nbsp;Lagos, Nigeria</a>
+      </div>
+      <form id="contact-form">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Message"></textarea>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Onyinyechi Anita Ikea · Built as a living document — update sheets anytime.
+</footer>
+
+<!-- SIGNATURE NAV: Excel-style sheet tabs -->
+<nav class="sheet-tabs" id="sheet-tabs">
+  <button class="sheet-tab active" data-target="home" style="--tab-color:var(--c-bcase);">Home</button>
+  <button class="sheet-tab" data-target="about" style="--tab-color:var(--c-brd);">About</button>
+  <button class="sheet-tab" data-target="skills" style="--tab-color:var(--c-powerbi);">Skills</button>
+  <button class="sheet-tab" data-target="data-analysis" style="--tab-color:var(--c-excel);">Data Analysis</button>
+  <button class="sheet-tab" data-target="business-analysis" style="--tab-color:var(--c-bcase);">Business Analysis</button>
+  <button class="sheet-tab" data-target="resume" style="--tab-color:var(--c-sql);">Résumé</button>
+  <button class="sheet-tab" data-target="contact" style="--tab-color:var(--c-brd);">Contact</button>
+  <span class="sheet-plus" title="More sheets coming soon">+</span>
+</nav>
+
+<script>
+/* ============ EDITABLE CONTENT ============ */
+/* GitHub base — EDIT ME: replace with your actual GitHub username */
+const GITHUB_BASE = "https://github.com/Kennystfyn/";
+
+/* Category color map used for badges + card accents */
+const CATEGORY_COLORS = {
+  excel:   {accent:"var(--c-excel)",   deep:"#0A7A52", soft:"var(--c-excel-soft)"},
+  powerbi: {accent:"var(--c-powerbi)", deep:"#9C6C00", soft:"var(--c-powerbi-soft)"},
+  sql:     {accent:"var(--c-sql)",     deep:"#1B5FA0", soft:"var(--c-sql-soft)"},
+  bcase:   {accent:"var(--c-bcase)",   deep:"#6829B3", soft:"var(--c-bcase-soft)"},
+  brd:     {accent:"var(--c-brd)",     deep:"#B02E5C", soft:"var(--c-brd-soft)"}
+};
+
+const excelProjects = [
+  {
+    title: "BikeGear Solutions Sales Performance Analysis",
+    desc: "Analyzed sales performance, revenue, profit, customer segments, and product categories. Identified top-performing products, customer groups, and monthly sales trends.",
+    slug: "bikegear-sales-analysis-excel",
+    tools: ["Excel", "Pivot Tables"]
+  },
+  {
+    title: "CarePlus Hospital Performance Analysis",
+    desc: "Analyzed hospital revenue, cost, profit margin, consultation time, and department-level performance to improve visibility into operations and service efficiency.",
+    slug: "careplus-hospital-performance-excel",
+    tools: ["Excel", "Healthcare"]
+  },
+  {
+    title: "Pure Life Hospital Patient Flow &amp; Billing Analysis",
+    desc: "Analyzed patient visits, admission rate, billing, insurance coverage, out-of-pocket payments, waiting time, diagnosis, and outcomes.",
+    slug: "purelife-patient-billing-excel",
+    tools: ["Excel", "Healthcare"]
+  },
+  {
+    title: "Finance Tracker Project",
+    desc: "Designed a personal finance tracker to monitor income, expenses, savings, loans, budgets, and financial goals with monthly reporting.",
+    slug: "personal-finance-tracker-excel",
+    tools: ["Excel", "Budgeting"]
+  }
+];
+
+const powerbiProjects = [
+  {
+    title: "Instacart Online Grocery Delivery Analysis",
+    desc: "Dashboard analyzing customer orders, revenue, product performance, department sales, profitable aisles, weekend sales, and order timing to support inventory and shift planning.",
+    slug: "instacart-delivery-analysis-powerbi",
+    tools: ["Power BI", "Retail"]
+  },
+  {
+    title: "SDF Swim Guide Data Quality Compliance Dashboard",
+    desc: "Data quality framework tracking beach reporting compliance, missing records, inactive beaches, delayed submissions, and affiliate-level reporting gaps.",
+    slug: "swim-guide-data-quality-powerbi",
+    tools: ["Power BI", "Data Quality"]
+  },
+  {
+    title: "BikeGear Sales Dashboard",
+    desc: "Sales performance dashboard showing revenue, profit, customer segments, product category performance, and monthly trends for management decision-making.",
+    slug: "bikegear-sales-dashboard-powerbi",
+    tools: ["Power BI", "Sales"]
+  },
+  {
+    title: "Pure Life Hospital Dashboard",
+    desc: "Healthcare dashboard tracking patient visits, admission rate, billing, insurance and out-of-pocket payments, waiting time, and outcomes.",
+    slug: "purelife-hospital-dashboard-powerbi",
+    tools: ["Power BI", "Healthcare"]
+  }
+];
+
+const sqlProjects = [
+  // EDIT ME: add your SQL projects here in the same {title, desc, slug, tools} format.
+];
+
+const businessCaseProjects = [
+  {
+    title: "Customer Onboarding Optimization for a Fintech Platform",
+    problem: "Many registered customers did not complete KYC, fund their accounts, or become active users.",
+    approach: "Mapped the customer onboarding journey, identified drop-off points, documented business requirements, created user stories, and recommended CRM automation with stage-based follow-up.",
+    outcome: "Improves KYC completion, funding rate, customer activation, follow-up tracking, and management visibility.",
+    slug: "fintech-customer-onboarding-business-case"
+  },
+  {
+    title: "SecureSure Insurance CRM Implementation Project",
+    problem: "Customer data was scattered across different tools, causing duplicate records, missed follow-ups, poor visibility, and inconsistent communication.",
+    approach: "Developed stakeholder analysis, RACI matrix, communication plan, AS-IS and TO-BE process, UAT plan, training plan, and deployment support plan.",
+    outcome: "Improves customer data management, follow-up accountability, reporting, and customer retention.",
+    slug: "securesure-crm-implementation"
+  },
+  {
+    title: "Employee Online Lunch Ordering System Business Case",
+    problem: "The manual lunch ordering process caused long waiting time, order mistakes, food waste, and productivity loss.",
+    approach: "Created a business case, stakeholder analysis, process map, in-scope and out-of-scope, RACI matrix, risk register, cost-benefit analysis, ROI, and payback period.",
+    outcome: "Reduces waiting time, improves order accuracy, supports meal planning, and improves employee productivity.",
+    slug: "lunch-ordering-system-business-case"
+  },
+  {
+    title: "Synergy Enterprises HRIS Implementation Case Study",
+    problem: "Employee data was fragmented across different systems, causing duplicate records, poor reporting, and compliance risks.",
+    approach: "Developed a business case for a centralized HRIS, including stakeholder analysis, current-state assessment, proposed solution, risk analysis, and benefits summary.",
+    outcome: "Improves employee data accuracy, HR reporting, compliance tracking, and operational efficiency.",
+    slug: "synergy-hris-implementation"
+  },
+  {
+    title: "CarePlus Hospital Digital Patient Intake Project",
+    problem: "The manual patient intake process caused long queues, repeated data entry, staff pressure, and possible data errors.",
+    approach: "Analyzed the intake process, identified stakeholders, documented risks, defined business requirements, and recommended a phased digital intake solution.",
+    outcome: "Improves patient check-in speed, data accuracy, staff productivity, EHR integration, and patient experience.",
+    slug: "careplus-digital-patient-intake"
+  }
+];
+
+const brdProjects = [
+  {
+    title: "Barrel & Brew Brewery Operations Improvement Project",
+    problem: "The brewery experienced production delays, inventory shortages, bottling downtime, quality inconsistency, and poor sales-production communication.",
+    approach: "Used stakeholder analysis, AS-IS process mapping, gap analysis, fishbone analysis, TO-BE process design, BRD documentation, and success metrics.",
+    outcome: "Supports better production planning, inventory tracking, quality control, and operational visibility.",
+    slug: "barrel-and-brew-brd"
+  },
+  {
+    title: "Process Mapping Capstone: Employee Online Lunch Ordering System",
+    problem: "The lunch ordering workflow lacked a clear process, stakeholder responsibilities, and automated cut-off control.",
+    approach: "Mapped the future-state process from menu update to employee ordering, 11:00 AM cut-off validation, kitchen preparation, delivery, and completion.",
+    outcome: "Improves workflow clarity, reduces manual confusion, and gives stakeholders a clear view of how the system works.",
+    slug: "lunch-ordering-process-mapping-capstone"
+  },
+  {
+    title: "End-to-End Business Analysis Project Lifecycle Case Study",
+    problem: "Projects often fail when business needs are unclear, stakeholders are not aligned, and requirements are poorly documented.",
+    approach: "Documented the BA lifecycle from problem identification to stakeholder analysis, requirements gathering, AS-IS/TO-BE, UAT, deployment, monitoring, lessons learned, and closure.",
+    outcome: "Provides a reusable framework for managing BA work across different projects.",
+    slug: "end-to-end-ba-lifecycle-case-study"
+  }
+];
+
+const skillGroups = [
+  {
+    title: "Business Analysis",
+    color: "bcase",
+    items: ["Requirement Gathering","Stakeholder Analysis","Business Requirements Document","Process Mapping","AS-IS / TO-BE Analysis","Gap Analysis","Fishbone Analysis","RACI Matrix","User Stories & Acceptance Criteria","UAT Planning","Risk Register","Business Case Development","Cost-Benefit Analysis / ROI"]
+  },
+  {
+    title: "Data Analysis",
+    color: "excel",
+    items: ["Data Cleaning & Transformation","KPI Analysis","Dashboard Design","Data Visualization","Sales Analysis","Healthcare Analysis","Customer Analysis","Operational Reporting","Data Quality Analysis"]
+  },
+  {
+    title: "Tools & Software",
+    color: "sql",
+    items: ["Microsoft Excel","Power BI","SQL / MySQL","Google Sheets","Word & PowerPoint","Jira","Canva","CRM Tools"]
+  },
+  {
+    title: "Methodologies",
+    color: "brd",
+    items: ["Agile Business Analysis","Waterfall Documentation","Stakeholder Management","Root Cause Analysis","Data-Driven Decision Making","Business Process Modelling","Digital Transformation Support"]
+  }
+];
+
+/* ============ RENDER ============ */
+function renderProjectCards(list, label, cat){
+  const c = CATEGORY_COLORS[cat];
+  if(!list.length){
+    return `<div class="proj-card" style="--accent:${c.accent}; --accent-deep:${c.deep};"><div class="proj-label">${label}</div><h3>More on the way</h3><p>SQL project write-ups are being added — check back soon or view ongoing work on GitHub.</p></div>`;
+  }
+  return list.map(p => `
+    <div class="proj-card" style="--accent:${c.accent}; --accent-deep:${c.deep};">
+      <div class="proj-label">${label}</div>
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <div class="proj-foot">
+        <div class="tool-badges">${p.tools.map(t=>`<span class="tool-badge" style="background:${c.soft}; color:${c.deep};">${t}</span>`).join("")}</div>
+        <a class="proj-link" href="${GITHUB_BASE}${p.slug}" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderBCaseCards(list, label, cat){
+  const c = CATEGORY_COLORS[cat];
+  return list.map(p => `
+    <div class="bcase-card" style="--accent:${c.accent}; --accent-deep:${c.deep};">
+      <div class="proj-label">${label}</div>
+      <h3>${p.title}</h3>
+      <div class="bcase-row"><div class="k">Problem</div><div class="v">${p.problem}</div></div>
+      <div class="bcase-row"><div class="k">Approach</div><div class="v">${p.approach}</div></div>
+      <div class="bcase-row"><div class="k">Outcome</div><div class="v">${p.outcome}</div></div>
+      <div class="proj-foot"><span></span><a class="proj-link" href="${GITHUB_BASE}${p.slug}" target="_blank" rel="noopener">View on GitHub →</a></div>
+    </div>
+  `).join("");
+}
+
+function renderSkills(){
+  const grid = document.getElementById("skills-grid");
+  grid.innerHTML = skillGroups.map(g => {
+    const c = CATEGORY_COLORS[g.color];
+    return `
+    <div class="skill-card" style="--accent:${c.accent};">
+      <h3>${g.title}</h3>
+      <ul>${g.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+    </div>
+  `;
+  }).join("");
+}
+
+function setDataTab(tab){
+  const grid = document.getElementById("data-card-grid");
+  if(tab === "excel") grid.innerHTML = renderProjectCards(excelProjects, "Excel Project", "excel");
+  if(tab === "powerbi") grid.innerHTML = renderProjectCards(powerbiProjects, "Power BI Project", "powerbi");
+  if(tab === "sql") grid.innerHTML = renderProjectCards(sqlProjects, "SQL Project", "sql");
+}
+
+function setBaTab(tab){
+  const grid = document.getElementById("ba-card-grid");
+  if(tab === "bcase") grid.innerHTML = renderBCaseCards(businessCaseProjects, "Business Case", "bcase");
+  if(tab === "brd") grid.innerHTML = renderBCaseCards(brdProjects, "BRD Project", "brd");
+}
+
+document.querySelectorAll("#data-tabs .tab-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("#data-tabs .tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    setDataTab(btn.dataset.tab);
+  });
+});
+
+document.querySelectorAll("#ba-tabs .tab-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("#ba-tabs .tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    setBaTab(btn.dataset.tab);
+  });
+});
+
+/* Sheet tab bar navigation */
+const sheetTabs = document.querySelectorAll(".sheet-tab");
+sheetTabs.forEach(tab=>{
+  tab.addEventListener("click", ()=>{
+    const target = document.getElementById(tab.dataset.target);
+    if(target) target.scrollIntoView({behavior:"smooth"});
+  });
+});
+
+const sectionIds = ["home","about","skills","data-analysis","business-analysis","resume","contact"];
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      sheetTabs.forEach(t=>t.classList.toggle("active", t.dataset.target === entry.target.id));
+    }
+  });
+}, {rootMargin:"-40% 0px -50% 0px"});
+sectionIds.forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) observer.observe(el);
+});
+
+/* Contact form -> mailto fallback (EDIT ME: replace address to match yours above) */
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  const inputs = this.querySelectorAll("input, textarea");
+  const name = inputs[0].value, email = inputs[1].value, message = inputs[2].value;
+  const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+});
+
+/* Init */
+renderSkills();
+setDataTab("excel");
+setBaTab("bcase");
+</script>
+</body>
+</html>
