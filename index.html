@@ -44,7 +44,8 @@
   }
   body{
     font-family:var(--body);
-    background:var(--paper);
+    background:linear-gradient(160deg, #FDF3FF 0%, #F1EBFF 20%, #E8F6EF 45%, #FFF6E0 70%, #FDEBF2 100%);
+    background-attachment:fixed;
     color:var(--ink);
     line-height:1.6;
     padding-bottom:64px;
@@ -73,12 +74,11 @@
   h2{font-size:clamp(28px,4vw,38px); color:var(--ink); margin-bottom:8px;}
   .section-sub{color:var(--steel); max-width:600px; margin-bottom:44px; font-size:15.5px;}
   section{padding:96px 0;}
-  section:nth-of-type(even){background:var(--paper-alt);}
 
   /* ---------- Top bar ---------- */
   .topbar{
     position:sticky; top:0; z-index:50;
-    background:rgba(255,253,249,0.9);
+    background:rgba(255,253,249,0.72);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
@@ -309,7 +309,7 @@
   /* ---------- Sheet tab bar (signature nav) ---------- */
   .sheet-tabs{
     position:fixed; bottom:0; left:0; right:0; z-index:100;
-    background:var(--paper-alt); border-top:1px solid var(--line);
+    background:rgba(245,242,255,0.9); backdrop-filter:blur(6px); border-top:1px solid var(--line);
     display:flex; align-items:flex-end; overflow-x:auto;
     padding:0 12px;
   }
