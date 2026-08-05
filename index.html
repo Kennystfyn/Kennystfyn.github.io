@@ -452,7 +452,7 @@
       <div class="grid-cells">
         <div class="rh"></div><div class="ch">A</div><div class="ch">B</div><div class="ch">C</div><div class="ch">D</div>
         <div class="rh">1</div><div class="cell">Role</div><div class="cell c-bcase">Business Analyst</div><div class="cell">Data Analyst</div><div class="cell">Fintech</div>
-        <div class="rh">2</div><div class="cell">Tools</div><div class="cell c-excel">Excel</div><div class="cell c-powerbi">Power BI</div><div class="cell c-sql">SQL</div>
+        <div class="rh">2</div><div class="cell">Tools</div><div class="cell c-excel">Excel</div><div class="cell c-powerbi">Power BI</div><div class="cell c-bcase">CRM</div>
         <div class="rh">3</div><div class="cell">Skill</div><div class="cell">BRD</div><div class="cell">RACI</div><div class="cell">UAT</div>
         <div class="rh">4</div><div class="cell">Base</div><div class="cell" style="grid-column:span 3;">Lagos, Nigeria</div>
       </div>
@@ -470,7 +470,7 @@
       <div class="avatar"><span>OA</span></div>
       <div class="about-body">
         <p>I am a Business Analyst and Data Analyst with experience in fintech sales, customer relationship management, customer onboarding, retention, and business process improvement. My work focuses on helping businesses understand problems, document requirements, improve workflows, analyze data, and make better decisions.</p>
-        <p>I have practical experience using tools such as Excel, SQL, Power BI, and business analysis techniques including stakeholder analysis, process mapping, gap analysis, fishbone analysis, user stories, acceptance criteria, RACI matrix, and business case development.</p>
+        <p>I have practical experience using tools such as Excel, SQL, Power BI, and CRM platforms (for fintech sales and customer relationship management), along with business analysis techniques including stakeholder analysis, process mapping, gap analysis, fishbone analysis, user stories, acceptance criteria, RACI matrix, and business case development.</p>
         <div class="location-line">📍 Lagos, Nigeria</div>
       </div>
     </div>
@@ -630,22 +630,16 @@ const excelProjects = [
     tools: ["Excel", "Pivot Tables"]
   },
   {
-    title: "CarePlus Hospital Performance Analysis",
-    desc: "Analyzed hospital revenue, cost, profit margin, consultation time, and department-level performance to improve visibility into operations and service efficiency.",
-    slug: "careplus-hospital-performance-excel",
-    tools: ["Excel", "Healthcare"]
-  },
-  {
-    title: "Pure Life Hospital Patient Flow &amp; Billing Analysis",
-    desc: "Analyzed patient visits, admission rate, billing, insurance coverage, out-of-pocket payments, waiting time, diagnosis, and outcomes.",
-    slug: "purelife-patient-billing-excel",
-    tools: ["Excel", "Healthcare"]
-  },
-  {
     title: "Finance Tracker Project",
     desc: "Designed a personal finance tracker to monitor income, expenses, savings, loans, budgets, and financial goals with monthly reporting.",
     slug: "personal-finance-tracker-excel",
     tools: ["Excel", "Budgeting"]
+  },
+  {
+    title: "TeleConnect Customer Data Analysis",
+    desc: "Analyzed customer data for TeleConnect to uncover patterns in usage, churn, and customer segments, supporting data-driven retention and service decisions.",
+    slug: "teleconnect-customer-data-excel",
+    tools: ["Excel", "Customer Analytics"]
   }
 ];
 
@@ -663,15 +657,21 @@ const powerbiProjects = [
     tools: ["Power BI", "Data Quality"]
   },
   {
-    title: "BikeGear Sales Dashboard",
-    desc: "Sales performance dashboard showing revenue, profit, customer segments, product category performance, and monthly trends for management decision-making.",
-    slug: "bikegear-sales-dashboard-powerbi",
-    tools: ["Power BI", "Sales"]
+    title: "CarePlus Hospital Performance Analysis",
+    desc: "Analyzed hospital revenue, cost, profit margin, consultation time, and department-level performance to improve visibility into operations and service efficiency.",
+    slug: "careplus-hospital-performance-powerbi",
+    tools: ["Power BI", "Healthcare"]
   },
   {
     title: "Pure Life Hospital Dashboard",
     desc: "Healthcare dashboard tracking patient visits, admission rate, billing, insurance and out-of-pocket payments, waiting time, and outcomes.",
     slug: "purelife-hospital-dashboard-powerbi",
+    tools: ["Power BI", "Healthcare"]
+  },
+  {
+    title: "Pure Life Hospital Patient Flow &amp; Billing Analysis",
+    desc: "Analyzed patient visits, admission rate, billing, insurance coverage, out-of-pocket payments, waiting time, diagnosis, and outcomes.",
+    slug: "purelife-patient-billing-powerbi",
     tools: ["Power BI", "Healthcare"]
   }
 ];
