@@ -645,10 +645,10 @@ const excelProjects = [
 
 const powerbiProjects = [
   {
-    title: "Instacart Online Grocery Delivery Analysis",
-    desc: "Dashboard analyzing customer orders, revenue, product performance, department sales, profitable aisles, weekend sales, and order timing to support inventory and shift planning.",
+    title: "Instacart Sales &amp; Customer Insights Dashboard",
+    desc: "End-to-end SQL + Power BI project analyzing $158.37M in revenue across 1M orders — separating high-demand from high-profit aisles, mapping peak ordering times, and flagging a data-quality issue that was masking true category performance.",
     slug: "instacart-delivery-analysis-powerbi",
-    tools: ["Power BI", "Retail"]
+    tools: ["Power BI", "SQL", "Retail"]
   },
   {
     title: "SDF Swim Guide Data Quality Compliance Dashboard",
@@ -657,27 +657,26 @@ const powerbiProjects = [
     tools: ["Power BI", "Data Quality"]
   },
   {
-    title: "CarePlus Hospital Performance Analysis",
-    desc: "Analyzed hospital revenue, cost, profit margin, consultation time, and department-level performance to improve visibility into operations and service efficiency.",
+    title: "CarePlus Health Operations Analysis",
+    desc: "Power BI dashboard analyzing $57.58M revenue, 33% profit margin, and department/demographic performance for CarePlus Health — surfacing a Q1–Q4 revenue decline and where profit is really generated.",
     slug: "careplus-hospital-performance-powerbi",
-    tools: ["Power BI", "Healthcare"]
+    tools: ["Power BI", "Healthcare", "DAX"]
   },
   {
-    title: "Pure Life Hospital Dashboard",
-    desc: "Healthcare dashboard tracking patient visits, admission rate, billing, insurance and out-of-pocket payments, waiting time, and outcomes.",
-    slug: "purelife-hospital-dashboard-powerbi",
-    tools: ["Power BI", "Healthcare"]
-  },
-  {
-    title: "Pure Life Hospital Patient Flow &amp; Billing Analysis",
-    desc: "Analyzed patient visits, admission rate, billing, insurance coverage, out-of-pocket payments, waiting time, diagnosis, and outcomes.",
-    slug: "purelife-patient-billing-powerbi",
-    tools: ["Power BI", "Healthcare"]
+    title: "Pure Life Hospital Analytics Project",
+    desc: "End-to-end Power BI reporting solution across three views — Executive/Operations, Clinical, and Patient — connecting 5,000 patient visits with $294.03M in revenue, insurance coverage, severity, and outcomes.",
+    slug: "purelife-hospital-analytics-powerbi",
+    tools: ["Power BI", "Healthcare", "DAX"]
   }
 ];
 
 const sqlProjects = [
-  // EDIT ME: add your SQL projects here in the same {title, desc, slug, tools} format.
+  {
+    title: "Instacart Sales &amp; Customer Insights (SQL Analysis)",
+    desc: "Answered core business questions directly in SQL — top departments by revenue, weekend product demand, category profitability comparisons, and unsold-product detection via LEFT JOIN — feeding into the Power BI dashboard.",
+    slug: "instacart-delivery-analysis-powerbi",
+    tools: ["SQL", "PostgreSQL"]
+  }
 ];
 
 const businessCaseProjects = [
