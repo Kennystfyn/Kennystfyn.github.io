@@ -439,9 +439,9 @@
         <a href="#resume" class="btn btn-ghost">Download résumé</a>
       </div>
       <div class="impact-strip">
-        <div class="impact-chip" style="--accent:var(--c-excel);"><span class="num">X%</span><span class="label">EDIT ME: e.g. improvement in reporting time</span></div>
-        <div class="impact-chip" style="--accent:var(--c-powerbi);"><span class="num">X hrs</span><span class="label">EDIT ME: e.g. saved per month via dashboard automation</span></div>
-        <div class="impact-chip" style="--accent:var(--c-bcase);"><span class="num">X</span><span class="label">EDIT ME: e.g. business cases delivered</span></div>
+        <div class="impact-chip" style="--accent:var(--c-excel);"><span class="num">17</span><span class="label">portfolio projects across Excel, Power BI, SQL and business analysis</span></div>
+        <div class="impact-chip" style="--accent:var(--c-powerbi);"><span class="num">£534K</span><span class="label">at-risk revenue flagged in the Largence retention analysis</span></div>
+        <div class="impact-chip" style="--accent:var(--c-bcase);"><span class="num">19.3%</span><span class="label">churn rate diagnosed and traced to early-tenure customers</span></div>
       </div>
     </div>
     <div class="sheet-visual">
@@ -558,8 +558,7 @@
         <p>A full copy of my experience, education, and project history in one PDF.</p>
       </div>
       <div>
-        <a href="#" class="btn btn-signal" id="resume-btn">Download résumé (PDF)</a>
-        <div class="edit-note" style="margin-top:10px; background:#3A2A5C; color:#F2C879; border-color:#5A4680;">EDIT ME: replace the href on this button with a link to your uploaded résumé PDF.</div>
+        <a href="Onyinyechi_Ikea_Resume.pdf" target="_blank" rel="noopener" class="btn btn-signal" id="resume-btn">Download résumé (PDF)</a>
       </div>
     </div>
   </div>
@@ -573,12 +572,9 @@
     <p class="section-sub">Open to business analyst, data analyst, and fintech operations roles — reach out any way that works for you.</p>
     <div class="contact-grid">
       <div class="contact-info">
-        <a href="mailto:youremail@example.com">✉️ &nbsp;youremail@example.com</a>
-        <div class="edit-note">EDIT ME: replace with your real email address.</div>
-        <a href="#" style="margin-top:14px;">🔗 &nbsp;linkedin.com/in/your-profile</a>
-        <div class="edit-note">EDIT ME: replace with your LinkedIn URL.</div>
-        <a href="#" style="margin-top:14px;">💻 &nbsp;github.com/your-username</a>
-        <div class="edit-note">EDIT ME: replace with your GitHub profile — all project links throughout this site point here.</div>
+        <a href="mailto:ikea.onyinyechi@gmail.com">✉️ &nbsp;ikea.onyinyechi@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ikeaonyinyechi" target="_blank" rel="noopener" style="margin-top:14px;">🔗 &nbsp;linkedin.com/in/ikeaonyinyechi</a>
+        <a href="https://github.com/Kennystfyn" target="_blank" rel="noopener" style="margin-top:14px;">💻 &nbsp;github.com/Kennystfyn</a>
         <a href="#" style="margin-top:14px;">📍 &nbsp;Lagos, Nigeria</a>
       </div>
       <form id="contact-form">
@@ -610,7 +606,7 @@
 
 <script>
 /* ============ EDITABLE CONTENT ============ */
-/* GitHub base — EDIT ME: replace with your actual GitHub username */
+/* GitHub base */
 const GITHUB_BASE = "https://github.com/Kennystfyn/";
 
 /* Category color map used for badges + card accents */
@@ -874,14 +870,14 @@ sectionIds.forEach(id=>{
   if(el) observer.observe(el);
 });
 
-/* Contact form -> mailto fallback (EDIT ME: replace address to match yours above) */
+/* Contact form -> mailto fallback  */
 document.getElementById("contact-form").addEventListener("submit", function(e){
   e.preventDefault();
   const inputs = this.querySelectorAll("input, textarea");
   const name = inputs[0].value, email = inputs[1].value, message = inputs[2].value;
   const subject = encodeURIComponent(`Portfolio contact from ${name}`);
   const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-  window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:ikea.onyinyechi@gmail.com?subject=${subject}&body=${body}`;
 });
 
 function renderNavDropdowns(){
